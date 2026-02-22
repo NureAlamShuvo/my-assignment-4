@@ -54,7 +54,10 @@ mainSection.addEventListener("click", function (event) {
 
 
     if (event.target.classList.contains('interview-btn')) {
-        const parentNode = event.target.parentNode.parentNode;
+        let parentNode = event.target.parentNode.parentNode;
+        if(!parentNode.querySelector(".company-name")){
+            parentNode = parentNode.parentNode.parentNode;
+        };
         const companyName = parentNode.querySelector('.company-name').innerText;
         const jobType = parentNode.querySelector('.job-type').innerText;
         const salary = parentNode.querySelector('.salary').innerText;
@@ -85,9 +88,14 @@ mainSection.addEventListener("click", function (event) {
         calculateCount();
 
         render();
+
+        toggleBtn("btn-2");
     };
     if (event.target.classList.contains('reject-btn')) {
-        const parentNode = event.target.parentNode.parentNode;
+        let parentNode = event.target.parentNode.parentNode;
+        if(!parentNode.querySelector(".company-name")){
+            parentNode = parentNode.parentNode.parentNode;
+        };
         const companyName = parentNode.querySelector('.company-name').innerText;
         const jobType = parentNode.querySelector('.job-type').innerText;
         const salary = parentNode.querySelector('.salary').innerText;
@@ -117,6 +125,7 @@ mainSection.addEventListener("click", function (event) {
 
         calculateCount();
         
+        toggleBtn("btn-3");
     };
 });
 
