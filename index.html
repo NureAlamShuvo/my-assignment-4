@@ -31,7 +31,7 @@
         <div class="grid grid-cols-3 gap-4">
             <div class="bg-[#F1F2F4] rounded-lg p-5">
                 <p class="text-[#323B49] font-medium">Total</p>
-                <p is="total-box" class="text-[#002C5C] font-bold text-2xl">8</p>
+                <p id="total-box" class="text-[#002C5C] font-bold text-2xl">0</p>
             </div>
             <div class="bg-[#F1F2F4] rounded-lg p-5">
                 <p class="text-[#323B49] font-medium">Interview</p>
@@ -53,25 +53,30 @@
             <p id="available-job" class="text-[#64748B] font-medium">8 jobs</p>
         </div>
         <div class="space-x-2 mt-6">
-            <button class="btn btn-primary">All</button>
-            <button class="btn btn-active">Interview</button>
-            <button class="btn btn-active">Rejected</button>
+            <button onclick="toggleBtn('btn-1')" id="btn-1" class="btn btn-primary">All</button>
+            <button onclick="toggleBtn('btn-2')" id="btn-2" class="btn btn-active">Interview</button>
+            <button onclick="toggleBtn('btn-3')" id="btn-3" class="btn btn-active">Rejected</button>
         </div>
 
+        <!-- filtered section -->
+         <section id="filtered-job-section" class="hidden">
+
+         </section>
+
         <!-- Jobs card area  -->
-        <section id="all-jobs-card">
+        <section id="all-job-card">
             <div class="flex justify-between bg-[#F1F2F4] rounded-lg p-6 mt-4">
                 <div>
                     <div class="space-y-5">
                         <div class="space-y-5">
-                            <h2 class="text-[#002C5C] text-2xl font-bold">Mobile First Corp</h2>
-                            <p class="text-[#64748B] font-medium">React Native Developer</p>
-                            <p class="text-[#64748B] font-medium">Remote•Full-time•$130,000 - $175,000</p>
+                            <h2 class="company-name text-[#002C5C] text-2xl font-bold">Mobile First Corp</h2>
+                            <p class="job-type text-[#64748B] font-medium">React Native Developer</p>
+                            <p class="salary text-[#64748B] font-medium">Remote•Full-time•$130,000 - $175,000</p>
                         </div>
                         <div class="space-y-3">
-                            <button class="not-applied-btn btn btn-soft text-[#002C5C] bg-[#EEF4FF] hidden">Not
+                            <button class="not-applied-btn btn btn-soft text-[#002C5C] bg-[#EEF4FF]">Not
                                 Applied</button>
-                            <p class="text-[#323B49] font-medium">Build cross-platform mobile applications using React
+                            <p class="discription text-[#323B49] font-medium">Build cross-platform mobile applications using React
                                 Native. Work on products used by
                                 millions of users worldwide.</p>
                         </div>
@@ -83,29 +88,29 @@
                 </div>
                 <div class="">
                     <a href="" class="delete-btn border-gray-400 border rounded-full p-1 bg-gray-100"><i
-                            class="fa-regular fa-trash-can"></i></a>
+                    class="fa-regular fa-trash-can"></i></a>
                 </div>
             </div>
-        </section>
+        
 
         <!-- card-2 -->
-        <section id="all-jobs-card">
+
             <div class="flex justify-between bg-[#F1F2F4] rounded-lg p-6 mt-4">
                 <div>
                     <div class="space-y-5">
                         <div class="space-y-5">
-                            <h2 class="text-[#002C5C] text-2xl font-bold">WebFlow Agency</h2>
-                            <p class="text-[#64748B] font-medium">Web Designer & Developer</p>
-                            <p class="text-[#64748B] font-medium">Los Angeles, CA
+                            <h2 class="text-[#002C5C] text-2xl font-bold company-name">WebFlow Agency</h2>
+                            <p class="text-[#64748B] font-medium job-type">Web Designer & Developer</p>
+                            <p class="text-[#64748B] font-medium salary">Los Angeles, CA
                                 •
                                 Part-time
                                 •
                                 $80,000 - $120,000</p>
                         </div>
                         <div class="space-y-3">
-                            <button class="not-applied-btn btn btn-soft text-[#002C5C] bg-[#EEF4FF] hidden">Not
+                            <button class="not-applied-btn btn btn-soft text-[#002C5C] bg-[#EEF4FF]">Not
                                 Applied</button>
-                            <p class="text-[#323B49] font-medium">Create stunning web experiences for high-profile
+                            <p class="text-[#323B49] font-medium discription">Create stunning web experiences for high-profile
                                 clients. Must have portfolio and experience with modern web design trends.</p>
                         </div>
                         <div>
@@ -119,26 +124,26 @@
                             class="fa-regular fa-trash-can"></i></a>
                 </div>
             </div>
-        </section>
+
 
         <!-- card-3 -->
-        <section id="all-jobs-card">
+
             <div class="flex justify-between bg-[#F1F2F4] rounded-lg p-6 mt-4">
                 <div>
                     <div class="space-y-5">
                         <div class="space-y-5">
-                            <h2 class="text-[#002C5C] text-2xl font-bold">DataViz Solutions</h2>
-                            <p class="text-[#64748B] font-medium">Data Visualization Specialist</p>
-                            <p class="text-[#64748B] font-medium">Boston, MA
+                            <h2 class="text-[#002C5C] text-2xl font-bold company-name">DataViz Solutions</h2>
+                            <p class="text-[#64748B] font-medium job-type">Data Visualization Specialist</p>
+                            <p class="text-[#64748B] font-medium salary">Boston, MA
                                 •
                                 Full-time
                                 •
                                 $125,000 - $165,000</p>
                         </div>
                         <div class="space-y-3">
-                            <button class="not-applied-btn btn btn-soft text-[#002C5C] bg-[#EEF4FF] hidden">Not
+                            <button class="not-applied-btn btn btn-soft text-[#002C5C] bg-[#EEF4FF]">Not
                                 Applied</button>
-                            <p class="text-[#323B49] font-medium">Transform complex data into compelling visualizations.
+                            <p class="text-[#323B49] font-medium discription">Transform complex data into compelling visualizations.
                                 Required skills: D3.js, React, and strong analytical thinking.
                             </p>
                         </div>
@@ -153,26 +158,26 @@
                             class="fa-regular fa-trash-can"></i></a>
                 </div>
             </div>
-        </section>
+
 
         <!-- card-4 -->
-        <section id="all-jobs-card">
+
             <div class="flex justify-between bg-[#F1F2F4] rounded-lg p-6 mt-4">
                 <div>
                     <div class="space-y-5">
                         <div class="space-y-5">
-                            <h2 class="text-[#002C5C] text-2xl font-bold">CloudFirst Inc</h2>
-                            <p class="text-[#64748B] font-medium">Backend Developer</p>
-                            <p class="text-[#64748B] font-medium">Seattle, WA
+                            <h2 class="text-[#002C5C] text-2xl font-bold company-name">CloudFirst Inc</h2>
+                            <p class="text-[#64748B] font-medium job-type">Backend Developer</p>
+                            <p class="text-[#64748B] font-medium salary">Seattle, WA
                                 •
                                 Full-time
                                 •
                                 $140,000 - $190,000</p>
                         </div>
                         <div class="space-y-3">
-                            <button class="not-applied-btn btn btn-soft text-[#002C5C] bg-[#EEF4FF] hidden">Not
+                            <button class="not-applied-btn btn btn-soft text-[#002C5C] bg-[#EEF4FF]">Not
                                 Applied</button>
-                            <p class="text-[#323B49] font-medium">Design and maintain scalable backend systems using
+                            <p class="text-[#323B49] font-medium discription">Design and maintain scalable backend systems using
                                 Python and AWS. Work with modern DevOps practices and cloud infrastructure.</p>
                         </div>
                         <div>
@@ -186,26 +191,26 @@
                             class="fa-regular fa-trash-can"></i></a>
                 </div>
             </div>
-        </section>
+
 
         <!-- card-5 -->
-        <section id="all-jobs-card">
+
             <div class="flex justify-between bg-[#F1F2F4] rounded-lg p-6 mt-4">
                 <div>
                     <div class="space-y-5">
                         <div class="space-y-5">
-                            <h2 class="text-[#002C5C] text-2xl font-bold">Innovation Labs</h2>
-                            <p class="text-[#64748B] font-medium">UI/UX Engineer</p>
-                            <p class="text-[#64748B] font-medium">Austin, TX
+                            <h2 class="text-[#002C5C] text-2xl font-bold company-name">Innovation Labs</h2>
+                            <p class="text-[#64748B] font-medium job-type">UI/UX Engineer</p>
+                            <p class="text-[#64748B] font-medium salary">Austin, TX
                                 •
                                 Full-time
                                 •
                                 $110,000 - $150,000</p>
                         </div>
                         <div class="space-y-3">
-                            <button class="not-applied-btn btn btn-soft text-[#002C5C] bg-[#EEF4FF] hidden">Not
+                            <button class="not-applied-btn btn btn-soft text-[#002C5C] bg-[#EEF4FF]">Not
                                 Applied</button>
-                            <p class="text-[#323B49] font-medium">Create beautiful and functional user interfaces for
+                            <p class="text-[#323B49] font-medium discription">Create beautiful and functional user interfaces for
                                 our suite of products. Strong design skills and frontend development expertise required.
                             </p>
                         </div>
@@ -220,26 +225,26 @@
                             class="fa-regular fa-trash-can"></i></a>
                 </div>
             </div>
-        </section>
+
 
         <!-- card-6 -->
-        <section id="all-jobs-card">
+
             <div class="flex justify-between bg-[#F1F2F4] rounded-lg p-6 mt-4">
                 <div>
                     <div class="space-y-5">
                         <div class="space-y-5">
-                            <h2 class="text-[#002C5C] text-2xl font-bold">MegaCorp Solutions</h2>
-                            <p class="text-[#64748B] font-medium">JavaScript Developer</p>
-                            <p class="text-[#64748B] font-medium">New York, NY
+                            <h2 class="text-[#002C5C] text-2xl font-bold company-name">MegaCorp Solutions</h2>
+                            <p class="text-[#64748B] font-medium job-type">JavaScript Developer</p>
+                            <p class="text-[#64748B] font-medium salary">New York, NY
                                 •
                                 Full-time
                                 •
                                 $130,000 - $170,00</p>
                         </div>
                         <div class="space-y-3">
-                            <button class="not-applied-btn btn btn-soft text-[#002C5C] bg-[#EEF4FF] hidden">Not
+                            <button class="not-applied-btn btn btn-soft text-[#002C5C] bg-[#EEF4FF]">Not
                                 Applied</button>
-                            <p class="text-[#323B49] font-medium">Build enterprise applications with JavaScript and
+                            <p class="text-[#323B49] font-medium discription">Build enterprise applications with JavaScript and
                                 modern frameworks. We offer competitive compensation, health insurance, and professional
                                 development opportunities.</p>
                         </div>
@@ -254,26 +259,26 @@
                             class="fa-regular fa-trash-can"></i></a>
                 </div>
             </div>
-        </section>
+
 
         <!-- card-7 -->
-        <section id="all-jobs-card">
+
             <div class="flex justify-between bg-[#F1F2F4] rounded-lg p-6 mt-4">
                 <div>
                     <div class="space-y-5">
                         <div class="space-y-5">
-                            <h2 class="text-[#002C5C] text-2xl font-bold">StartupXYZ</h2>
-                            <p class="text-[#64748B] font-medium">Full Stack Engineer</p>
-                            <p class="text-[#64748B] font-medium">Remote
+                            <h2 class="text-[#002C5C] text-2xl font-bold company-name">StartupXYZ</h2>
+                            <p class="text-[#64748B] font-medium job-type">Full Stack Engineer</p>
+                            <p class="text-[#64748B] font-medium salary">Remote
                                 •
                                 Full-time
                                 •
                                 $120,000 - $160,000</p>
                         </div>
                         <div class="space-y-3">
-                            <button class="not-applied-btn btn btn-soft text-[#002C5C] bg-[#EEF4FF] hidden">Not
+                            <button class="not-applied-btn btn btn-soft text-[#002C5C] bg-[#EEF4FF]">Not
                                 Applied</button>
-                            <p class="text-[#323B49] font-medium">Join our fast-growing startup and work on our core
+                            <p class="text-[#323B49] font-medium discription">Join our fast-growing startup and work on our core
                                 platform. Experience with Node.js and React required. Great benefits and equity package
                                 included.</p>
                         </div>
@@ -288,26 +293,26 @@
                             class="fa-regular fa-trash-can"></i></a>
                 </div>
             </div>
-        </section>
+
 
         <!-- card-8 -->
-        <section id="all-jobs-card">
+
             <div class="flex justify-between bg-[#F1F2F4] rounded-lg p-6 mt-4 mb-15">
                 <div>
                     <div class="space-y-5">
                         <div class="space-y-5">
-                            <h2 class="text-[#002C5C] text-2xl font-bold">TechCorp Industries</h2>
-                            <p class="text-[#64748B] font-medium">Senior Frontend Developer</p>
-                            <p class="text-[#64748B] font-medium">San Francisco, CA
+                            <h2 class="text-[#002C5C] text-2xl font-bold company-name">TechCorp Industries</h2>
+                            <p class="text-[#64748B] font-medium job-type">Senior Frontend Developer</p>
+                            <p class="text-[#64748B] font-medium salary">San Francisco, CA
                                 •
                                 Full-time
                                 •
                                 $130,000 - $175,000</p>
                         </div>
                         <div class="space-y-3">
-                            <button class="not-applied-btn btn btn-soft text-[#002C5C] bg-[#EEF4FF] hidden">Not
+                            <button class="not-applied-btn btn btn-soft text-[#002C5C] bg-[#EEF4FF]">Not
                                 Applied</button>
-                            <p class="text-[#323B49] font-medium">We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.</p>
+                            <p class="text-[#323B49] font-medium discription">We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.</p>
                         </div>
                         <div>
                             <button class="interview-btn btn btn-outline btn-success">Interview</button>
@@ -320,9 +325,11 @@
                             class="fa-regular fa-trash-can"></i></a>
                 </div>
             </div>
-        </section>
+            </section>
 
     </main>
+
+    <script src="job-tracker.js"></script>
 </body>
 
 </html>
