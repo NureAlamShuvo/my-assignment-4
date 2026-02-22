@@ -154,20 +154,36 @@ mainSection.addEventListener("click", function (event) {
 
     if(event.target.classList.contains("delete-btn")){
             const deleteCard = event.target.closest(".job-card");
-            deleteCard.remove();
+            const companyName = deleteCard.querySelector(".company-name").innerText;
+
+            const allCards = allJobCard.querySelectorAll(".job-card");
+            allCards.forEach(card => {
+                if(card.querySelector(".company-name").innerText === companyName){
+                    card.remove();
+                }
+            });
+
+            interviewList = interviewList.filter(item => item.companyName !== companyName);
+            rejectList = rejectList.filter(item => item.companyName !== companyName);
+
             calculateCount();
+
+            if(currentStatus === "btn-2") render();
+            
+            if(currentStatus === "btn-3") renderReject();
+
         };
 });
 
 
 function render() {
-    
+
     filteredJobSection.innerHTML = '';
 
     for (let interview of interviewList) {
 
         let divCreat = document.createElement("div");
-        divCreat.className = "flex justify-between bg-[#F1F2F4] rounded-lg p-6 mt-4";
+        divCreat.className = "job-card flex justify-between bg-[#F1F2F4] rounded-lg p-6 mt-4";
         divCreat.innerHTML = `
         <div>
                     <div class="space-y-5">
@@ -188,8 +204,9 @@ function render() {
                     </div>
                 </div>
                 <div class="">
-                    <a href="" class="delete-btn border-gray-400 border rounded-full p-1 bg-gray-100"><i
-                    class="fa-regular fa-trash-can"></i></a>
+                    <button class="delete-btn border-gray-400 border p-1 bg-gray-100 cursor-pointer">
+                        <i class="fa-regular fa-trash-can delete-btn"></i>
+                    </button>
                 </div>
         `
         filteredJobSection.appendChild(divCreat);
@@ -218,7 +235,7 @@ function renderReject() {
     for (let reject of rejectList) {
 
         let divCreat = document.createElement("div");
-        divCreat.className = "flex justify-between bg-[#F1F2F4] rounded-lg p-6 mt-4";
+        divCreat.className = "job-card flex justify-between bg-[#F1F2F4] rounded-lg p-6 mt-4";
         divCreat.innerHTML = `
         <div>
                     <div class="space-y-5">
@@ -239,8 +256,9 @@ function renderReject() {
                     </div>
                 </div>
                 <div class="">
-                    <a href="" class="delete-btn border-gray-400 border rounded-full p-1 bg-gray-100"><i
-                    class="fa-regular fa-trash-can"></i></a>
+                    <button class="delete-btn border-gray-400 border p-1 bg-gray-100 cursor-pointer">
+                        <i class="fa-regular fa-trash-can delete-btn"></i>
+                    </button>
                 </div>
         `
         filteredJobSection.appendChild(divCreat);
